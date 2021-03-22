@@ -1,0 +1,9 @@
+#yum install -y dhcp        #安装dhcp服务;
+#配置文件 /etc/dhcp/dhcpd.conf
+#指定接收DHCP请求的网卡地址,注意不是本机ip地址,netmask为子网掩码;
+subnet 192.168.19.0 netmask 255.255.255.0 {
+option routers 192.168.19.1;        #指定默认网关;
+option subnet-mask 255.255.255.0;       #指定默认子网掩码;
+max-lease-time 172800;              #指定最大租用周期;
+range 192.168.19.230 192.168.19.240;    #此DHCP服务分配的ip地址范围;
+}
